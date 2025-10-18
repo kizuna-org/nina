@@ -2,7 +2,10 @@ module github.com/kizuna-org/akari
 
 go 1.25.3
 
-require google.golang.org/api v0.252.0
+require (
+	go.uber.org/mock v0.6.0
+	google.golang.org/api v0.252.0
+)
 
 require (
 	cloud.google.com/go/auth v0.17.0 // indirect

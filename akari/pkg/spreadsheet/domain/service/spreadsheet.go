@@ -35,7 +35,9 @@ func NewSpreadsheetService(repo SpreadsheetRepository) SpreadsheetService {
 	}
 }
 
-func (s *SpreadsheetServiceImpl) Read(ctx context.Context, spreadsheetId, sheetName, range_ string) (*entity.GridData, error) {
+func (s *SpreadsheetServiceImpl) Read(
+	ctx context.Context, spreadsheetId, sheetName, range_ string,
+) (*entity.GridData, error) {
 	cellRange := entity.CellRange{
 		SheetData: entity.SheetData{
 			SpreadsheetId: spreadsheetId,
@@ -47,7 +49,9 @@ func (s *SpreadsheetServiceImpl) Read(ctx context.Context, spreadsheetId, sheetN
 	return s.repo.Read(ctx, cellRange)
 }
 
-func (s *SpreadsheetServiceImpl) Create(ctx context.Context, spreadsheetId, sheetName, range_ string, values [][]string) error {
+func (s *SpreadsheetServiceImpl) Create(
+	ctx context.Context, spreadsheetId, sheetName, range_ string, values [][]string,
+) error {
 	gridData := &entity.GridData{
 		CellRange: entity.CellRange{
 			SheetData: entity.SheetData{
@@ -62,7 +66,9 @@ func (s *SpreadsheetServiceImpl) Create(ctx context.Context, spreadsheetId, shee
 	return s.repo.Create(ctx, gridData)
 }
 
-func (s *SpreadsheetServiceImpl) Update(ctx context.Context, spreadsheetId, sheetName, range_ string, values [][]string) error {
+func (s *SpreadsheetServiceImpl) Update(
+	ctx context.Context, spreadsheetId, sheetName, range_ string, values [][]string,
+) error {
 	gridData := &entity.GridData{
 		CellRange: entity.CellRange{
 			SheetData: entity.SheetData{
@@ -101,7 +107,9 @@ func (s *SpreadsheetServiceImpl) Clear(ctx context.Context, spreadsheetId, sheet
 	return s.repo.Clear(ctx, cellRange)
 }
 
-func (s *SpreadsheetServiceImpl) Append(ctx context.Context, spreadsheetId, sheetName, range_ string, values [][]string) error {
+func (s *SpreadsheetServiceImpl) Append(
+	ctx context.Context, spreadsheetId, sheetName, range_ string, values [][]string,
+) error {
 	gridData := &entity.GridData{
 		CellRange: entity.CellRange{
 			SheetData: entity.SheetData{
